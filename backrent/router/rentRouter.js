@@ -3,10 +3,8 @@ const { getpro, postpro, updatepro, deletepro, getprobyid } = require("../contro
 const router=express.Router()
 
 
-router.get("/",getpro)
-router.post("/",postpro)
-router.put("/:id",updatepro)
-router.get("/:id",getprobyid)
-router.delete("/:id",deletepro)
+router.route("/").get(getpro).post(postpro)
+router.route("/:id").put(updatepro).get(getprobyid).delete(deletepro)
+
 
 module.exports=router;
