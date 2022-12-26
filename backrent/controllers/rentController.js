@@ -2,6 +2,9 @@ const express=require("express")
 const router=express.Router();
 const asyncHandler=require("express-async-handler");
 const Product=require("../model/electricModel")
+const fs=require("fs");
+const path=require("path")
+
 const getpro=asyncHandler(async(req,res,next)=>{
     const product=await Product.find()
     res.status(200).json(product)
@@ -20,7 +23,10 @@ const postpro=asyncHandler(async(req,res,next)=>{
         mrent,
         deposit,
         image,
-        dimensions
+        dimensions,
+        image:{
+            data:fs.readFileSync
+        }
     })
     res.status(201).json(product)
 })
