@@ -3,31 +3,31 @@ const mongoose=require("mongoose")
 const productschema=mongoose.Schema({
     prname:{
         type:String,
-        required:[true]
+        required:[true,"name not provided"]
     },
     prtype:{
         type:String,
-        required:[true]
+        // required:[true,"type not provided"]
     },
     description:{
         type:String,
-        required:[true]
+        // required:[true,"description not provided"]
     },
     image:{
-        type:Buffer,
-        contentType:String,
+        type:String
+        // required:[true,"image not provided"]
     },
     mrent:{
         type:Number,
-        required:[true],
+        // required:[true,"please define rent"],
     },
     deposit:{
         type:Number,
-        required:[true]
+        // required:[true,"please define deposit"]
     },
     features:{
         type:[String],
-        required:[true]
+        // required:[true,"addd features"]
     },
     dimensions:{
         type:String
