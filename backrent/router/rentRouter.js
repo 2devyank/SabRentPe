@@ -5,6 +5,7 @@ const path=require("path")
 const multer=require("multer")
 const {v4:uuidv4}=require('uuid');
 
+const validataToken=require("../middleware/validateToken")
 const storage=multer.diskStorage({
     destination:(req,file,cb)=>{
         cb(null,'images')
@@ -25,6 +26,7 @@ const fileFilter=(req,file,cb)=>{
 
 const upload=multer({storage,fileFilter})
 
+router.use(validataToken);
 router.route("/").get(getpro).post(upload.single('image'),postpro)
 router.route("/:id").put(updatepro).get(getprobyid).delete(deletepro)
 

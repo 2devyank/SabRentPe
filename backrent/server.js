@@ -11,6 +11,7 @@ mongoose.connect("mongodb://localhost/products")
 
 app.use(express.json())
 app.use("/api/rent",require("./router/rentRouter"))
+app.use("/api/user",require("./router/userRouter"))
 app.use(errorHandler)
 
 
