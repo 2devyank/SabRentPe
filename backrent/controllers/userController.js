@@ -54,4 +54,9 @@ if(user && (await bcrypt.compare(password,user.password))){
 }
 })
 
-module.exports={registeruser,loginuser};
+const currentuser=asyncHandler(async(req,res,next)=>{
+    res.status(200).json(req.user)
+}
+
+)
+module.exports={registeruser,loginuser,currentuser};

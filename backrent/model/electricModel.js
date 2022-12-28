@@ -32,6 +32,9 @@ const productschema=mongoose.Schema({
     dimensions:{
         type:String
     },
+    quantity:{
+        type:String
+    }
 },{
     timestamps:true
 })
