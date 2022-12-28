@@ -7,27 +7,27 @@ const productschema=mongoose.Schema({
     },
     prtype:{
         type:String,
-        // required:[true,"type not provided"]
+        required:[true,"type not provided"]
     },
     description:{
         type:String,
-        // required:[true,"description not provided"]
+        required:[true,"description not provided"]
     },
     image:{
-        type:String
-        // required:[true,"image not provided"]
+        type:String,
+        required:[true,"image not provided"]
     },
     mrent:{
         type:Number,
-        // required:[true,"please define rent"],
+        required:[true,"please define rent"]
     },
     deposit:{
         type:Number,
-        // required:[true,"please define deposit"]
+        required:[true,"please define deposit"]
     },
     features:{
         type:[String],
-        // required:[true,"addd features"]
+        required:[true,"addd features"]
     },
     dimensions:{
         type:String

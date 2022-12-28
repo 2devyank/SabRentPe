@@ -12,37 +12,14 @@ const getpro=asyncHandler(async(req,res,next)=>{
     res.status(200).json(product)
 })
 
-// const storage=multer.diskStorage({
-//     destination:(req,file,cb)=>{
-//         cb(null,'images')
-//     },
-//     filename:(req,file,cb)=>{
-//         cb(null,uuidv4()+'-'+Date.now()+path.extname(file.originalname))
-//     }
-// })
-
-// const fileFilter=(req,file,cb)=>{
-//     const allowedfiletypes=['image/jpeg','image/jpg','image/png'];
-//     if(allowedfiletypes.includes(file.mimetype)){
-//         cb(null,true)
-//     }else{
-//         cb(null,false)
-//     }
-// }
-
-// const upload=multer({storage,fileFilter})
-
-
-
-
 const postpro=asyncHandler(async(req,res,next)=>{
     const{   prname, prtype,  description,  features,  mrent, deposit,dimensions}=req.body
     const image=req.file.path
     console.log(req.file)
-    // if(!prname||!prtype||!description||!features||!mrent||!deposit||!dimensions){
-    //     res.status(400);
-    //     throw new Error("not provided")
-    // }
+    if(!prname||!prtype||!description||!features||!mrent||!deposit||!dimensions){
+        res.status(400);
+        throw new Error("not provided")
+    }
     const product=await Product.create({
         prname,
         image,
@@ -57,13 +34,40 @@ const postpro=asyncHandler(async(req,res,next)=>{
 })
 
 const getprobyid=asyncHandler(async(req,res,next)=>{
-    res.send(`hello get id renter ${req.params.id}`)
+    const product=await Product.findById(req.params.id)
+    if(!product){
+        res.status(404)
+        throw new Error("not having this product")
+    }
+    res.status(200).json(product);
 })
+
+
 const updatepro=asyncHandler(async(req,res,next)=>{
-    res.send(`hello put renter ${req.params.id}`)
+    const product=await Product.findById(req.params.id)
+    if(!product){
+        res.status(404)
+        throw new Error("not having this product")
+    }
+
+    const productupdate=await Product.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        {new:true}
+    )
+
+
+    res.status(200).json(productupdate);
 })
 
 const deletepro=asyncHandler(async(req,res,next)=>{
+    const product=await Product.findById(req.params.id)
+    if(!product){
+        res.status(404)
+        throw new Error("not having this product")
+    }
+    const deleteproduct=await Product.findByIdAndDelete(req.params.id);
+
     res.send(`hello deleted renter ${req.params.id}`)
 })
 
