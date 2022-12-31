@@ -16,8 +16,21 @@ function Register() {
     useEffect(()=>{
 fetchnotes();
     },[])
-    const handlesubmit=()=>{
+    const handlesubmit=(e)=>{
+      e.preventDefault();
+      const regobj={
+        name:name,
+        email:email,
+        password:password
 
+      }
+      axios.post("http://localhost:3000/api/user/register",regobj)
+      .then((res)=>console.log(res.data))
+      .catch((err)=>console.log(err))
+
+      setname("")
+      setemail("")
+      setpassword("")
     }
   return (
     
