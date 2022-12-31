@@ -2,17 +2,21 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 // import { reset } from 'cli-color';
 
 function Register() {
     const [name,setname]=useState("");
     const [email,setemail]=useState("");
     const [password,setpassword]=useState("");
+    const token=localStorage.getItem("token");
+    axios.defaults.headers.common["Authorization"]=`Bearer ${token}`
     const fetchnotes=async()=>{
       const data=await axios.get("http://localhost:3000/api/rent")
       .then((res)=>console.log(res.data))
       // console.log("data"+data);
     }
+    const navigate=useNavigate();
     useEffect(()=>{
 fetchnotes();
     },[])
@@ -27,6 +31,8 @@ fetchnotes();
       axios.post("http://localhost:3000/api/user/register",regobj)
       .then((res)=>console.log(res.data))
       .catch((err)=>console.log(err))
+
+      navigate("/login")
 
       setname("")
       setemail("")
