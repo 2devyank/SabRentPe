@@ -1,8 +1,15 @@
 import React from 'react'
+import Causel from './Causel'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <Causel/>
+    
+
+
+
+    </div>
   )
 }
 
