@@ -26,7 +26,7 @@ const fileFilter=(req,file,cb)=>{
 
 const upload=multer({storage,fileFilter})
 
-router.use(validataToken);
+// router.use(validataToken);
 router.route("/").get(getpro).post(upload.single('image'),postpro)
 router.route("/:id").put(updatepro).get(getprobyid).delete(deletepro)
 

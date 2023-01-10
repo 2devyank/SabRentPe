@@ -6,9 +6,12 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Navba from './components/Navba';
 import Home from './components/Home';
+import { useGetAllProductsQuery } from './features/rentSlice';
 
 function App() {
-  
+  const {data}=useGetAllProductsQuery();
+  console.log(data);
+
 
   return (
    <BrowserRouter>
