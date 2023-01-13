@@ -13,22 +13,26 @@ const getpro=asyncHandler(async(req,res,next)=>{
 })
 
 const postpro=asyncHandler(async(req,res,next)=>{
-    const{   prname, prtype,  description,  features,  mrent, deposit,dimensions}=req.body
+    const{   prname, prtype,  description,  features,quantity,  mrent, deposit,length,width,height}=req.body
     const image=req.file.path
     console.log(req.file)
-    if(!prname||!prtype||!description||!features||!mrent||!deposit||!dimensions){
-        res.status(400);
-        throw new Error("not provided")
-    }
+    // if(!prname||!prtype||!description||!mrent||!deposit||!quantity){
+    //     res.status(400);
+    //     throw new Error("not provided")
+    // }
     const product=await Product.create({
         prname,
-        image,
+        // image,
         prtype,
-        description,
-        features,
-        mrent,
-        deposit,
-        dimensions,
+        // description,
+        // features,
+        // mrent,
+        // deposit,
+        // dimensions,
+        // length,
+        // width,
+        // height,
+        // quantity
     })
     res.status(201).json(product)
 })

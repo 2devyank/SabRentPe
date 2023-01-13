@@ -2,10 +2,10 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react"
 
 export const rentApi=createApi({
 reducerPath:"rentApi",
-baseQuery:fetchBaseQuery({baseUrl:"https://dummyjson.com/"}),
+baseQuery:fetchBaseQuery({baseUrl:"http://localhost:3000/"}),
 endpoints:(builder)=>({
     getAllProducts:builder.query({
-        query:()=>"products"
+        query:()=>"api/rent"
     }),
 }),
 })

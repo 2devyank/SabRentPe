@@ -1,0 +1,13 @@
+.box1{
+    padding :3px 30px;
+    display: flex;
+    gap: 20px;
+}
+.innerbox{
+    padding :10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 1rem;
+}
