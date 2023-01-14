@@ -1,11 +1,15 @@
 import React from 'react'
+import image from "../assets/black-bicycle.jpg"
+import "../styles/Card.css"
 
 function Card() {
   return (
-    <div>
-        <img src="" alt="" />
-        <p>Name</p>
-        <p>mrent/mo</p>
+    <div className="card">
+        <img src={image} alt="" className="img" />
+        <button className='imbut'>add</button>
+        <span>Name</span>
+        <hr />
+        <span>mrent/mo</span>
     </div>
   )
 }

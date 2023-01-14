@@ -1,6 +1,7 @@
 import React from 'react'
 import "../styles/product.css"
 import Form from 'react-bootstrap/Form';
+import Card from './Card';
 
 function Products() {
   return (
@@ -49,7 +50,7 @@ function Products() {
             </div>
         </div>
         <div className='rightbox'>
-
+                  <Card/>
         </div>
     </div>
   )

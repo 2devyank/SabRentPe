@@ -1,7 +1,7 @@
 .leftbox{
     width: 20%;
     /* border-right: 1px solid black; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 100%;
    padding: 15px 15px;
     display: flex;
@@ -13,11 +13,15 @@
 .rightbox{
 width: 80%;
 height: 100%;
+border: 1px solid red;
+padding: 20px 20px;
 }
 .outer{
     /* border: 1px solid red; */
     width: 100%;
     height: 100%;
+    display: flex;
+    gap: 10px;
 }
 .filter{
     border: 1px solid red;
