@@ -1,0 +1,14 @@
+.leftbox{
+    width: 20%;
+    border-right: 1px solid black;
+    height: 100%;
+}
+.rightbox{
+width: 80%;
+height: 100%;
+}
+.outer{
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+}
